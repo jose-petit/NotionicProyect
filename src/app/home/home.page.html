@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Notionic Proyecto
+      Notionic Proyect
     </ion-title>
   </ion-toolbar>
 </ion-header>
   
 <ion-content>
   <ion-list>
-    <ion-item button *ngFor="let note of notes" (click)="itemSelected(note.id)">
+    <ion-item button *ngFor="let note of notes" (click)="goToDetail(note.id)">
       {{ note.title }}
     </ion-item>  
   </ion-list>
