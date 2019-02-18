@@ -10,3 +10,4 @@ export class NotesService{
       public getNotes(){
           return this.notes;
       }
+    }
