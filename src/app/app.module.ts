@@ -1,4 +1,3 @@
-import { DetailPage } from './detail/detail.page';
 import { NotesService } from './../services/notes.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,9 +11,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent,
-  DetailPage],
-  entryComponents: [DetailPage],
+  declarations: [ AppComponent ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
