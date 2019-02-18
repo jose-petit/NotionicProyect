@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 
+import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/services/notes.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailPage implements OnInit {
 
   noteId: string = null;
+  // note: {id:null, title:null, description:null};
   note: object = { };
 
   constructor(
