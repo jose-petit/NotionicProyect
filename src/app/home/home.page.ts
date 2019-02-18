@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  notes =  [
+    {id:1, title:'Nota 1', description:'Descripcion de Nota 1'},
+    {id:2, title:'Nota 2', description:'Descripcion de Nota 2'},
+    {id:3, title:'Nota 3', description:'Descripcion de Nota 3'},
+  ]
 }
