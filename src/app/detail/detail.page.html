@@ -8,24 +8,31 @@
 </ion-header>
 
 <ion-content padding>
-  <p>{{ note.description }}</p>
- <ion-list>
-   <ion-item>
+  <ion-list>
+    <ion-item>
       <ion-label position="floating">Titulo de la Nota</ion-label>
-      <ion-input type="text"></ion-input>
-      <!-- <ion-input type="text" [(ngModel)]="note.title"></ion-input> -->
+      <ion-input type="text" [(ngModel)]="note.title"></ion-input>
     </ion-item>
     <ion-item>
-        <ion-label position="floating">Descripcion</ion-label>
-        <ion-textarea></ion-textarea>
-        <!-- <ion-textarea [(ngModel)]="note.description"></ion-textarea> -->
+      <ion-label position="floating">Descripcion</ion-label>
+      <ion-textarea [(ngModel)]="note.description"></ion-textarea>
     </ion-item>
     <ion-item>
-        <ion-label position="floating">Fecha</ion-label>
-        <div padding>
-        <ion-input type="date"></ion-input></div>
+      <ion-label position="floating">Fecha</ion-label>
+      <div padding>
+
+        <ng-container *ngIf="isAndroid;then android else web"></ng-container>
+        <ng-template #android>
+          <ion-button color="success" (click)="openDatePicker()">Seleccionar</ion-button>
+        </ng-template>
+        <ng-template #web>
+          <ion-input type="date"></ion-input>
+        </ng-template>
+        
+      </div>
     </ion-item>
   </ion-list>
   <div padding>
-  <ion-button expand="full" color="success">Guardar Nota</ion-button></div>
+    <ion-button expand="full" color="success">Guardar Nota</ion-button>
+  </div>
 </ion-content>

@@ -13,17 +13,7 @@ export class NotesService {
   }
 
   getNote(id) {
-    const filteredNotes = this.notes.filter(note => note.id === parseInt(id, 10));
-    if (filteredNotes.length > 0) {
-      return filteredNotes[0];
-    }
-    return null;
-  }
-
-  note = {id:null, title:null, description:null};
-
-  getNote2(id){
-    return this.notes.filter(function(e, i){return e.id == id})[0] || {id:null, title:null, description:null};
+    return this.notes.filter(note => note.id === parseInt(id, 10))[0] || { id: null, title: null, description: null };
   }
 }
 

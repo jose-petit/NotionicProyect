@@ -1,5 +1,7 @@
 {
   "name": "NOTIPROYECT",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
