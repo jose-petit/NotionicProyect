@@ -48,6 +48,14 @@ export class DetailPage implements OnInit {
     }
     this.navCtrl.pop();
   }
+
+  deleteNote(){
+    if(this.noteId!="0"){
+      this.notesService.deleteNote(this.note);
+      alert('Nota Eliminada con Exito!')
+    }
+    this.navCtrl.pop();
+  }
   
 
   openDatePicker() {
