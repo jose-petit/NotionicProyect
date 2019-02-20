@@ -38,9 +38,17 @@ export class DetailPage implements OnInit {
   }
 
   addNote(){
+    if(this.noteId != "0"){
+      this.notesService.editNote(this.note)
+      alert('Nota editada con exito!')
+    }else{
     this.noteId = new Date().toString();
     this.notesService.createNote(this.note);
+    alert('Nota Creada con Exito!')
+    }
+    this.navCtrl.pop();
   }
+  
 
   openDatePicker() {
     this.datePicker.show({

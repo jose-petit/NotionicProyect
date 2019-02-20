@@ -19,5 +19,15 @@ export class NotesService {
   createNote(note){
     this.notes.push(note);
   }
+
+  editNote(note){
+    for(let i; i < this.notes.length; i++){
+      if(this.notes[i].id == note.id){
+        this.notes[i] = note;
+       }
+     }
+  }
+
+  
 }
 
