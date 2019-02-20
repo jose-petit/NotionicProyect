@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NotesService } from 'src/services/notes.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detail',
@@ -20,12 +21,25 @@ export class DetailPage implements OnInit {
     private route: ActivatedRoute,
     private datePicker: DatePicker,
     private platform: Platform,
-  ) { }
+    public alertCtrl: AlertController,
+    public navCtrl: NavController,
+  ) {
+    
+ 
+
+   }
 
   ngOnInit() {
     this.noteId = this.route.snapshot.paramMap.get('id');
-    this.note = this.notesService.getNote(this.noteId);
+    if(this.noteId != null){
+      this.note = this.notesService.getNote(this.noteId);
+    }
     this.isAndroid = this.platform.is('cordova');
+  }
+
+  addNote(){
+    this.noteId = new Date().toString();
+    this.notesService.createNote(this.note);
   }
 
   openDatePicker() {

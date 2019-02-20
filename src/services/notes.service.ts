@@ -15,5 +15,9 @@ export class NotesService {
   getNote(id) {
     return this.notes.filter(note => note.id === parseInt(id, 10))[0] || { id: null, title: null, description: null };
   }
+
+  createNote(note){
+    this.notes.push(note);
+  }
 }
 

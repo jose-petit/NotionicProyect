@@ -24,4 +24,8 @@ export class HomePage {
   goToDetail(id) {
     this.router.navigateByUrl(`/detail/${id}`);
   }
+
+  createNote() {
+    this.router.navigateByUrl(`/detail/${0}`);
+  }
 }
