@@ -16,6 +16,11 @@ export class DetailPage implements OnInit {
   note: object = { };
   isAndroid = false;
 
+  tituloaux: string;
+  descripaux: string;
+  fechaaux: string;
+
+
   constructor(
     public notesService: NotesService,
     private route: ActivatedRoute,
@@ -24,8 +29,7 @@ export class DetailPage implements OnInit {
     public alertCtrl: AlertController,
     public navCtrl: NavController,
   ) {
-    
- 
+
 
    }
 
@@ -33,6 +37,7 @@ export class DetailPage implements OnInit {
     this.noteId = this.route.snapshot.paramMap.get('id');
     if(this.noteId != null){
       this.note = this.notesService.getNote(this.noteId);
+      alert('Nota ID' + this.noteId + ' note: ' + this.note);
       // notesService.getNote(this.noteId);
       //     .subscribe(note=>{
       //       this.note = note;
@@ -44,11 +49,12 @@ export class DetailPage implements OnInit {
   addNote(){
     if(this.noteId != "0"){
       this.notesService.updateNote(this.note)
-      alert('Nota editada con exito!')
+      alert('Nota editada con exito!' + this.note);
+
     }else{
     this.noteId = new Date().toString();
     this.notesService.createNote(this.note);
-    alert('Nota Creada con Exito!')
+    alert('Nota Creada con Exito!' + this.note);
     }
     this.navCtrl.pop();
   }

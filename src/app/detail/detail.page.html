@@ -31,6 +31,17 @@
         
       </div>
     </ion-item>
+
+    <ion-item>
+      <ion-label>Seleccione Grado</ion-label>
+      <ion-select placeholder="Select One" [(ngModel)]="note.id">
+        <ion-select-option value="07">7mo</ion-select-option>
+        <ion-select-option value="08">8vo</ion-select-option>
+        <ion-select-option value="09">9no</ion-select-option>
+        <ion-select-option value="10">1CS</ion-select-option>
+        <ion-select-option value="11">2CS</ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-list>
   <div padding>
     <ion-button expand="full" color="success" (click)="addNote()">Guardar Nota</ion-button>
