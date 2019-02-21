@@ -19,6 +19,10 @@ export class HomePage {
     private router: Router
   ) {
     this.notes = notesService.getNotes();
+    // notesService.getNotes();
+    //       .subscribe( notas => {
+    //         this.notes = notas;
+    //       });
   }
 
   goToDetail(id) {

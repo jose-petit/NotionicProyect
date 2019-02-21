@@ -33,13 +33,17 @@ export class DetailPage implements OnInit {
     this.noteId = this.route.snapshot.paramMap.get('id');
     if(this.noteId != null){
       this.note = this.notesService.getNote(this.noteId);
+      // notesService.getNote(this.noteId);
+      //     .subscribe(note=>{
+      //       this.note = note;
+      //     })
     }
     this.isAndroid = this.platform.is('cordova');
   }
 
   addNote(){
     if(this.noteId != "0"){
-      this.notesService.editNote(this.note)
+      this.notesService.updateNote(this.note)
       alert('Nota editada con exito!')
     }else{
     this.noteId = new Date().toString();
