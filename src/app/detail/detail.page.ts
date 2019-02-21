@@ -13,7 +13,7 @@ import { AlertController } from '@ionic/angular';
 export class DetailPage implements OnInit {
 
   noteId: string = null;
-  note: object = { };
+  note: object = {};
   isAndroid = false;
 
   tituloaux: string;
@@ -28,45 +28,34 @@ export class DetailPage implements OnInit {
     private platform: Platform,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
-  ) {
-
-
-   }
+  ) { }
 
   ngOnInit() {
     this.noteId = this.route.snapshot.paramMap.get('id');
-    if(this.noteId != null){
+    if (this.noteId != null) {
       this.note = this.notesService.getNote(this.noteId);
-      alert('Nota ID' + this.noteId + ' note: ' + this.note);
-      // notesService.getNote(this.noteId);
-      //     .subscribe(note=>{
-      //       this.note = note;
-      //     })
+      console.log(this.note);
     }
     this.isAndroid = this.platform.is('cordova');
   }
 
-  addNote(){
-    if(this.noteId != "0"){
-      this.notesService.updateNote(this.note)
-      alert('Nota editada con exito!' + this.note);
-
-    }else{
-    this.noteId = new Date().toString();
-    this.notesService.createNote(this.note);
-    alert('Nota Creada con Exito!' + this.note);
+  saveNote() {
+    if (this.noteId !== '0') {
+      // this.notesService.updateNote(this.note);
+    } else {
+      // this.noteId = new Date().toString(); ??
+      this.notesService.createNote(this.note);
     }
     this.navCtrl.pop();
   }
 
-  deleteNote(){
-    if(this.noteId!="0"){
+  deleteNote() {
+    if (this.noteId !== '0') {
       this.notesService.deleteNote(this.note);
-      alert('Nota Eliminada con Exito!')
+      console.log('Nota Eliminada con Exito!')
     }
     this.navCtrl.pop();
   }
-  
 
   openDatePicker() {
     this.datePicker.show({
